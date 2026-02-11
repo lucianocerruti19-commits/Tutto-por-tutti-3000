@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Tutto per Tutti | Premium Delivery</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#000000" />
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="topbar">
+
+    <!-- LOGO HAMBURGUESA ANIMADA -->
+    <div class="logo-box">
+      <div class="burger-logo">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <h1>Tutto per Tutti</h1>
+    </div>
+
+    <!-- TABS -->
+    <nav class="tabs">
+      <button onclick="filterMenu('all')" class="active">Todo</button>
+      <button onclick="filterMenu('burgers')">🍔 Burgers</button>
+      <button onclick="filterMenu('pizzas')">🍕 Pizzas</button>
+      <button onclick="filterMenu('drinks')">🥤 Bebidas</button>
+      <button onclick="filterMenu('desserts')">🍰 Postres</button>
+    </nav>
+
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <h2>Bienvenido 👑</h2>
+      <p>Tu comida premium en minutos.</p>
+
+      <button class="btn-main" onclick="getLocation()">
+        📍 Activar Ubicación
+      </button>
+
+      <p id="locationText">Ubicación: No activada</p>
+    </div>
+
+    <div class="hero-img">
+      <img src="hero.jpg" alt="Banner Tutto">
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <main class="menu">
+
+    <h2 class="section-title">🍔 Hamburguesas</h2>
+    <div class="grid">
+
+      <div class="food-card burgers">
+        <img src="burger1.jpg">
+        <h3>Big Tutto Burger</h3>
+        <p>$4500</p>
+        <button onclick="addToCart('Big Tutto Burger',4500)">Agregar +</button>
+      </div>
+
+      <div class="food-card burgers">
+        <img src="burger2.jpg">
+        <h3>Cheese Premium</h3>
+        <p>$5000</p>
+        <button onclick="addToCart('Cheese Premium',5000)">Agregar +</button>
+      </div>
+
+    </div>
+
+    <h2 class="section-title">🍕 Pizzas</h2>
+    <div class="grid">
+
+      <div class="food-card pizzas">
+        <img src="pizza1.jpg">
+        <h3>Pizza Napolitana</h3>
+        <p>$6000</p>
+        <button onclick="addToCart('Pizza Napolitana',6000)">Agregar +</button>
+      </div>
+
+      <div class="food-card pizzas">
+        <img src="pizza2.jpg">
+        <h3>Pizza Pepperoni</h3>
+        <p>$6500</p>
+        <button onclick="addToCart('Pizza Pepperoni',6500)">Agregar +</button>
+      </div>
+
+    </div>
+
+    <h2 class="section-title">🥤 Bebidas</h2>
+    <div class="grid">
+
+      <div class="food-card drinks">
+        <h3>Coca Cola</h3>
+        <p>$2000</p>
+        <button onclick="addToCart('Coca Cola',2000)">Agregar +</button>
+      </div>
+
+      <div class="food-card drinks">
+        <h3>Agua Mineral</h3>
+        <p>$1500</p>
+        <button onclick="addToCart('Agua Mineral',1500)">Agregar +</button>
+      </div>
+
+    </div>
+
+    <h2 class="section-title">🍰 Postres</h2>
+    <div class="grid">
+
+      <div class="food-card desserts">
+        <h3>Brownie</h3>
+        <p>$3000</p>
+        <button onclick="addToCart('Brownie',3000)">Agregar +</button>
+      </div>
+
+      <div class="food-card desserts">
+        <h3>Helado</h3>
+        <p>$2500</p>
+        <button onclick="addToCart('Helado',2500)">Agregar +</button>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- CART -->
+  <section class="cart">
+    <h2>🛒 Tu Pedido</h2>
+
+    <div id="cartItems">
+      <p class="empty">Carrito vacío 🍔</p>
+    </div>
+
+    <h3>Total: <span id="totalPrice">$0</span></h3>
+
+    <div class="cart-actions">
+      <button class="btn-whatsapp" onclick="sendWhatsApp()">
+        📲 Enviar Pedido
+      </button>
+
+      <button class="btn-clear" onclick="clearCart()">
+        Vaciar Carrito
+      </button>
+    </div>
+  </section>
+
+  <footer>
+    <p>🔥 Tutto Premium App © 2026</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js");
+  }
+</script>
+
+</body>
+</html>
